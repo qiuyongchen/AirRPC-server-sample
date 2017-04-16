@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 打开Spring的Annotation支持 -->
+    <context:annotation-config/>
+    <context:component-scan base-package="com.iloveqyc"/>
+
+    <bean id="myServer" class="com.iloveqyc.spring.ServiceRegister" init-method="init">
+        <property name="services">
+            <map>
+                <entry key="qiuyongcheniLoveYouService1" value-ref="iLoveYouService"/>
+            </map>
+        </property>
+    </bean>
+
+    <!--把xml中的bean资源托管给spring-->
+    <!--<import resource="classpath:server/AirServer.xml"/>-->
+
+</beans>
